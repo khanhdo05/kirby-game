@@ -1253,10 +1253,12 @@
             [(equal? (vector-ref current-kirby 0) "mario")
              (begin
                (draw-drawing canv basic-background 0 0)
-               (draw-drawing canv 
-                             (if (odd? (round (* 60 time)))
-                                 (mario-kirby-1 120)
-                                 (mario-kirby-2 120))
+               (draw-drawing canv
+                             (let* ([roundedT (round (* 0.002 time))]
+                                    [modT (modulo roundedT 2)])
+                               (cond
+                                 [(equal? 0 modT) (mario-kirby-1 120)]
+                                 [(equal? 1 modT) (mario-kirby-2 120)]))
                              50
                              80))]
             [(equal? (vector-ref current-kirby 0) "doctor")
