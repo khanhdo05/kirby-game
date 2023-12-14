@@ -5,6 +5,7 @@
 ;;; Authors: Khanh Do, Paul Lim, Seojin Pyoun, Sarah Qi
 ;;; Acknowledgement: We would like to acknowledge whoever created Kirby because it is so cute!
 ;;; GitHub repo: github.com/khanhdo05/kirby-game 
+;;; Presentation slide: https://docs.google.com/presentation/d/1w6r39iyslg40T_mMJiLzPRcGz7XGwFiV/edit?usp=sharing&ouid=111353665200170077630&rtpof=true&sd=true
 
 (import image)
 (import lab)
