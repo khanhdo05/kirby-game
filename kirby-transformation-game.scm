@@ -1263,9 +1263,11 @@
              (begin
                (draw-drawing canv basic-background 0 0)
                (draw-drawing canv
-                             (if (odd? (round (* 60 time)))
-                                 (doctor-kirby 120)
-                                 (doctor-kirby-with-water-drops 120))
+                             (let* ([roundedT (round (* 0.002 time))]
+                                    [modT (modulo roundedT 2)])
+                               (cond
+                                 [(equal? 0 modT) (doctor-kirby 120)]
+                                 [(equal? 1 modT) (doctor-kirby-with-water-drops 120)]))
                              180
                              120))]
             [(equal? (vector-ref current-kirby 0) "santa")
