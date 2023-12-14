@@ -1245,9 +1245,11 @@
              (begin
                (draw-drawing canv basic-background 0 0)
                (draw-drawing canv
-                             (if (odd? (round (* 60 time)))
-                                 (tennis-kirby-ball-down 120)
-                                 (tennis-kirby-ball-up 120))
+                             (let* ([roundedT (round (* 0.002 time))]
+                                    [modT (modulo roundedT 2)])
+                               (cond
+                                 [(equal? 0 modT) (tennis-kirby-ball-down 120)]
+                                 [(equal? 1 modT) (tennis-kirby-ball-up 120)]))
                              147
                              114))]
             [(equal? (vector-ref current-kirby 0) "mario")
